@@ -38,7 +38,11 @@ class Client:
     def input_thread(self):
         while True:
             to_send = input("> ")
-            self.send(to_send)
+            if to_send == "help" or to_send == "?":
+                # Add a list of commands for the client to see and not be printed to console
+                print("help")
+            else:
+                self.send(to_send)
 
     def run(self):
         self.connect()
