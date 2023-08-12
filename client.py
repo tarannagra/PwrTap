@@ -1,10 +1,9 @@
 
 # Built in modules
-
+import subprocess
 import socket
 import threading
 import tomllib
-import logging
 
 # External modules
 from pystyle import (
@@ -54,6 +53,8 @@ class Client:
             if to_send == "help" or to_send == "?":
                 # Add a list of commands for the client to see and not be printed to console
                 Write.Print(Help.menu, Colors.white_to_black, interval=0.01)
+            elif to_send == "clear screen":
+                subprocess.run(['clear'])
             else:
                 self.send(to_send)
 

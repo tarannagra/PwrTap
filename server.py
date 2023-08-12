@@ -30,7 +30,7 @@ class Server:
     
     def parse(self, content:str) -> None:
         match content:
-            case "clear screen":
+            case "clear server screen":
                 subprocess.run(['clear'])
             case "stop server":
                 exit(0)
