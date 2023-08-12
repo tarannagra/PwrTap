@@ -37,7 +37,7 @@ class Client:
 
     def input_thread(self):
         while True:
-            to_send = input("Enter something to send to the server: ")
+            to_send = input("> ")
             self.send(to_send)
 
     def run(self):
@@ -54,4 +54,5 @@ class Client:
 
 if __name__ == '__main__':
     client = Client()
-    client.run()
+    try: client.run()
+    except KeyboardInterrupt: print("Connection ended!"); exit(0)

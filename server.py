@@ -34,6 +34,13 @@ class Server:
                 subprocess.run(['clear'])
             case "stop server":
                 exit(0)
+            # What I want is NLP for if x is in y:
+            #   turn off server
+            #   or
+            #   server off
+            # ill make this when i make it
+            case "":
+                pass
 
     def start(self, buffer:int=4096):
         while True:
@@ -50,7 +57,7 @@ class Server:
                     print(f"Received from: {client_addr[0]}:{client_addr[1]}: {self.data}")
                 client_sock.close()
             except ConnectionResetError:
-                print("User has disconnected!")
+                print("A user has disconnected!")
 
 if __name__ == '__main__':
     server = Server()
