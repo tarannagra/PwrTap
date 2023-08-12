@@ -1,3 +1,4 @@
 # Removing my own configuration file(s)
 
 conf.toml
+.vscode

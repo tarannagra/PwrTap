@@ -1,6 +1,19 @@
+
+# Built in modules
+
 import socket
 import threading
 import tomllib
+import logging
+
+# External modules
+from pystyle import (
+    Write,
+    Colors,
+)
+
+# Local modules
+from lib.design import Help
 
 class Client:
     def __init__(self) -> None:
@@ -8,7 +21,7 @@ class Client:
 
         self.client = socket.socket(
             socket.AF_INET,
-            socket.SOCK_STREAM
+            socket.SOCK_STREAM,
         )
 
         self.host = self.data["client"]["host"]
@@ -32,7 +45,7 @@ class Client:
             data = self.client.recv(4096)
             if not data:
                 print("Disconnected from the server.")
-                break
+                exit(0)
             print(f"Received: {data.decode()}")
 
     def input_thread(self):
@@ -40,7 +53,7 @@ class Client:
             to_send = input("> ")
             if to_send == "help" or to_send == "?":
                 # Add a list of commands for the client to see and not be printed to console
-                print("help")
+                Write.Print(Help.menu, Colors.white_to_black, interval=0.01)
             else:
                 self.send(to_send)
 
@@ -59,4 +72,4 @@ class Client:
 if __name__ == '__main__':
     client = Client()
     try: client.run()
-    except KeyboardInterrupt: print("Connection ended!"); exit(0)
+    except KeyboardInterrupt: print("\nConnection ended!"); exit(0)
