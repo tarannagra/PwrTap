@@ -8,13 +8,13 @@ from pystyle import (
 )
 
 # Local modules
-import design
+import lib.design
 
 class Commands:
     def __init__(self) -> None:
         # 1 command
         self.run = lambda x: subprocess.run([x])
-        self.help = design.Help
+        self.help = lib.design.Help
         self.help_menu = self.help.menu
     
     # Clear client-side screen
