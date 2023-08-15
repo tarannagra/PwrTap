@@ -13,6 +13,7 @@ from pystyle import (
 
 # Local modules
 from lib.design import Help
+from lib.client_commands import Commands
 
 class Client:
     def __init__(self) -> None:
@@ -25,6 +26,8 @@ class Client:
 
         self.host = self.data["client"]["host"]
         self.port = self.data["client"]["port"]
+
+        self.commands = Commands()
 
     def connect(self) -> None:
         try:
@@ -52,7 +55,7 @@ class Client:
             to_send = input("> ")
             if to_send == "help" or to_send == "?":
                 # Add a list of commands for the client to see and not be printed to console
-                Write.Print(Help.menu, Colors.dark_red, interval=0.01)
+                self.commands.help_menu()
             elif to_send == "clear screen":
                 subprocess.run(['clear'])
             else:

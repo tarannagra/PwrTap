@@ -1,3 +1,4 @@
 # Initial plan was to have no external imports but we adapt
 colorama
 pystyle
+colorama
