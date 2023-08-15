@@ -55,7 +55,7 @@ class Client:
             to_send = input("> ")
             if to_send == "help" or to_send == "?":
                 # Add a list of commands for the client to see and not be printed to console
-                self.commands.help_menu()
+                Commands.help_menu()
             elif to_send == "clear screen":
                 subprocess.run(['clear'])
             else:
