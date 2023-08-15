@@ -27,8 +27,6 @@ class Client:
         self.host = self.data["client"]["host"]
         self.port = self.data["client"]["port"]
 
-        self.commands = Commands()
-
     def connect(self) -> None:
         try:
             self.client.connect((self.host, self.port))
