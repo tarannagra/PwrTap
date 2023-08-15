@@ -15,6 +15,8 @@ from pystyle import (
 from lib.design import Help
 from lib.client_commands import Commands
 
+commands = Commands()
+
 class Client:
     def __init__(self) -> None:
         self.data = tomllib.load(open('conf.toml', 'rb'))
@@ -53,7 +55,7 @@ class Client:
             to_send = input("> ")
             if to_send == "help" or to_send == "?":
                 # Add a list of commands for the client to see and not be printed to console
-                Commands.help_menu()
+                commands.help_menu()
             elif to_send == "clear screen":
                 subprocess.run(['clear'])
             else:
