@@ -8,14 +8,13 @@ from pystyle import (
 )
 
 # Local modules
-import lib.design
+from lib.design import Help
 
 class Commands:
     def __init__(self) -> None:
         # 1 command
         self.run = lambda x: subprocess.run([x])
-        self.help = lib.design.Help
-        self.help_menu = self.help.menu
+        
     
     # Clear client-side screen
     def clear(self) -> None:
@@ -24,7 +23,7 @@ class Commands:
     # Display menus
     def help_menu(self) -> None:
         Write.Print(
-            self.help_menu,
+            Help.menu,
             Colors.dark_red,
             interval=0.01
         )
