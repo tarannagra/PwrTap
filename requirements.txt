@@ -2,3 +2,5 @@
 colorama
 pystyle
 colorama
+mysql.connector
+tqdm
